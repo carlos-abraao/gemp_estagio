@@ -5,10 +5,9 @@
 
 using namespace std;
 
-int main(){
-	typedef pair<int, int> edge;	
+int main(){	
 
-	set< edge > S;	
+	set< pair<int, int> > S;	
 
 	cout << "Please enter N--> ";
 
@@ -16,19 +15,17 @@ int main(){
 
 	cin >> N;
 
-	if (N <= 0) return 0; 
+	if (N <= 0) return 0; 	
 
-	int rootN = int ( sqrt(double(N)) );	
-
-	for (int k=1; k<=rootN; k++) {
-		for (int j=1; j<=rootN; j++) {
+	for (int k=1; k<=N; k++) {
+		for (int j=1; j<=N; j++) {
 			S.insert(make_pair(k,j));
 		}
 	}
 
 	cout << "\e[1;1H\e[2J" << "Normal!" << endl;
 	
-	set< edge >::iterator si;
+	set< pair<int, int> >::iterator si;
 
 	for (si = S.begin(); si != S.end() ; si++) {
 		cout << (*si).first << " " << si->second << endl;
@@ -36,9 +33,10 @@ int main(){
 	}
 
 	/*
+
 	cout <<"\e[1;1H\e[2J" << "Reverso!" << endl;
 
-	set< edge >::reverse_iterator ssi;
+	set< pair<int, int> >::reverse_iterator ssi;
 
 	for (ssi = S.rbegin(); ssi != S.rend() ; ssi++) {
 		cout << (*ssi).first << " " << ssi->second<< endl;
@@ -54,7 +52,7 @@ int main(){
 	cout << "Count: " << S.count(make_pair(2,2)) << endl;
 
 	S.erase(make_pair(2,2));
-	cout << "Count depois de remoçao " << S.count(make_pair(2,2)) << endl;
+	cout << "Count depois de remoção: " << S.count(make_pair(2,2)) << endl;
 
 	int x = -5;
 
